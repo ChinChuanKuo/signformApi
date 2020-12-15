@@ -56,7 +56,7 @@ namespace signformApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers().RequireCors("Signin").RequireCors("Signout");
+                endpoints.MapControllers();
             });
         }
     }
