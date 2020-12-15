@@ -28,8 +28,13 @@ namespace signformApi
             /*services.AddCors(o => o.AddPolicy("WeatherForecast", builder => {
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));*/
-            services.AddCors(options => options.AddDefaultPolicy(
-                builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Signin",
+                    builder => builder.WithOrigins("http://221.222.222.181:6350/").AllowAnyMethod().AllowAnyHeader());
+                options.AddPolicy("Signout",
+                    builder => builder.WithOrigins("http://221.222.222.181:6350/").AllowAnyMethod().AllowAnyHeader());
+            });
             services.AddControllers();
         }
 
@@ -51,7 +56,7 @@ namespace signformApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers().RequireCors("Signin").RequireCors("Signout");
             });
         }
     }

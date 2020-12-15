@@ -4,7 +4,7 @@ using signformApi.Models;
 
 namespace signformApi.Controllers
 {
-    [EnableCors()]
+    [EnableCors("Signout")]
     [ApiController]
     [Route("[controller]")]
     public class SignoutController : ControllerBase
