@@ -4,9 +4,9 @@ using signformApi.Models;
 
 namespace signformApi.Controllers
 {
+    [EnableCors()]
     [ApiController]
     [Route("[controller]")]
-    [EnableCors("Signin")]
     public class SigninController : ControllerBase
     {
         [HttpPost]
