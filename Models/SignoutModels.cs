@@ -7,7 +7,7 @@ namespace signformApi.Models
 {
     public class SignoutClass
     {
-        public statusModels insertData(sItemData sItemData, string cuurip)
+        public statusModels GetInsertModels(sItemData sItemData, string cuurip)
         {
             database database = new database();
             DataTable mainRows = new DataTable();
