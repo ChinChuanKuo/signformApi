@@ -16,7 +16,7 @@ namespace signformApi.Models
             switch (mainRows.Rows.Count)
             {
                 case 0:
-                    return new statusModels() { status = "nodata" };
+                    return new statusModels() { status = sItemData.items["iid"].ToString().TrimEnd() };
             }
             dbparamlist.Add(new dbparam("@name", mainRows.Rows[0]["nm"].ToString().TrimEnd()));
             dbparamlist.Add(new dbparam("@note", ""));
