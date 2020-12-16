@@ -12,7 +12,7 @@ namespace signformApi.Models
             database database = new database();
             DataTable mainRows = new DataTable();
             List<dbparam> dbparamlist = new List<dbparam>();
-            dbparamlist.Add(new dbparam("@iid", sItemData.items["iid"]));
+            dbparamlist.Add(new dbparam("@iid", int.Parse(sItemData.items["iid"].ToString().TrimEnd())));
             mainRows = database.checkSelectSql("mssql", "sysstring", "exec web.searchflowform @iid;", dbparamlist);
             switch (mainRows.Rows.Count)
             {
