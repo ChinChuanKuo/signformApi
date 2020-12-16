@@ -4,17 +4,17 @@ using signformApi.Models;
 
 namespace signformApi.Controllers
 {
-    [EnableCors("Signin")]
+    [EnableCors("Sign")]
     [ApiController]
     [Route("[controller]")]
-    public class SigninController : Controller
+    public class SignController : Controller
     {
         [HttpPost]
-        [Route("post")]
-        public JsonResult insertData([FromBody] sItemData sItemData)
+        [Route("get")]
+        public JsonResult searchData([FromBody] sItemData sItemData)
         {
             string clientip = Request.HttpContext.Connection.RemoteIpAddress.ToString().TrimEnd() == "::1" ? "127.0.0.1" : Request.HttpContext.Connection.RemoteIpAddress.ToString().TrimEnd();
-            return Json(new SigninClass().GetInsertModels(sItemData, clientip));
+            return Json(new SignClass().GetSearchModels(sItemData, clientip));
         }
     }
 }

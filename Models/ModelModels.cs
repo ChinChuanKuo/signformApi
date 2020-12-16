@@ -8,6 +8,14 @@ namespace signformApi.Models
         public Dictionary<string, object> items { get; set; }
     }
 
+    public class sItemModels
+    {
+        [Required]
+        public Dictionary<string, object> items { get; set; }
+        [Required]
+        public string status { get; set; }
+    }
+
     public class statusModels
     {
         [Required]
