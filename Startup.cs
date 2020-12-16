@@ -51,7 +51,7 @@ namespace signformApi
 
             app.UseRouting();
 
-            app.UseCors();
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseAuthorization();
 
