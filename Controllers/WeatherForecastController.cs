@@ -8,9 +8,9 @@ using signformApi.Models;
 
 namespace signformApi.Controllers
 {
+    [EnableCors()]
     [ApiController]
     [Route("[controller]")]
-    [EnableCors("WeatherForecast")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
