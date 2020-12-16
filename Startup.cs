@@ -31,6 +31,8 @@ namespace signformApi
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+                options.AddPolicy("Sign",
+                    builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
                 options.AddPolicy("Signin",
                     builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
                 options.AddPolicy("Signout",
