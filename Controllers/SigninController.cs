@@ -10,7 +10,8 @@ namespace signformApi.Controllers
     public class SigninController : ControllerBase
     {
         [HttpPost]
-        public statusModels Post([FromBody] sItemData sItemData)
+        [Route("post")]
+        public statusModels insertData([FromBody] sItemData sItemData)
         {
             string clientip = Request.HttpContext.Connection.RemoteIpAddress.ToString().TrimEnd() == "::1" ? "127.0.0.1" : Request.HttpContext.Connection.RemoteIpAddress.ToString().TrimEnd();
             return new SigninClass().GetInsertModels(sItemData, clientip);
