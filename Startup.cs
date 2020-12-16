@@ -32,9 +32,9 @@ namespace signformApi
             {
                 options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
                 options.AddPolicy("Signin",
-                    builder => builder.WithOrigins("http://221.222.222.181:6350/").AllowAnyMethod().AllowAnyHeader());
+                    builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
                 options.AddPolicy("Signout",
-                    builder => builder.WithOrigins("http://221.222.222.181:6350/").AllowAnyMethod().AllowAnyHeader());
+                    builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
             services.AddControllers();
         }
