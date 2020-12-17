@@ -21,8 +21,9 @@ namespace signformApi.Models
             }
             string note = mainRows.Rows[0]["pnote"].ToString().TrimEnd().Replace("&lt;", "<").Replace("&gt;", ">");
             int firIndex = note.IndexOf("body") + 4;
-            items.Add("subject", "簽核單：" + mainRows.Rows[0]["subject"].ToString().TrimEnd());
-            items.Add("name", "簽核人員：" + mainRows.Rows[0]["nm"].ToString().TrimEnd());
+            items.Add("subject", $"簽核單：{mainRows.Rows[0]["subject"].ToString().TrimEnd()}");
+            items.Add("name", $"簽核人員：{mainRows.Rows[0]["nm"].ToString().TrimEnd()}");
+            items.Add("signin", $"簽核時間：{mainRows.Rows[0]["signin"].ToString().TrimEnd()}");
             items.Add("note", note.Substring(firIndex + 1, note.LastIndexOf("body") - firIndex));
             return new sItemModels() { items = items, status = "istrue" };
         }
