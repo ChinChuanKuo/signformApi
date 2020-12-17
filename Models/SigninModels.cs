@@ -23,9 +23,6 @@ namespace signformApi.Models
             {
                 case "0":
                 case "1":
-                    dbparamlist.Clear();
-                    dbparamlist.Add(new dbparam("@iid", int.Parse(sItemData.items["iid"].ToString().TrimEnd())));
-                    dbparamlist.Add(new dbparam("@name", mainRows.Rows[0]["nm"].ToString().TrimEnd()));
                     dbparamlist.Add(new dbparam("@phonesign", "0"));
                     if (database.checkActiveSql("mssql", "sysstring", "exec web.signinflowform @iid,@name,@phonesign;", dbparamlist) != "istrue")
                     {
